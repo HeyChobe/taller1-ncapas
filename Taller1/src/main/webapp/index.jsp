@@ -25,14 +25,19 @@
         <option value="Usulután">Usulután</option>
         <option value="Cabañas">Cabañas</option>
       </select>
+      <p>${deptoError}</p>
       <label for="name">Name</label>
       <input id="name" name="name" type="text" />
+      <p>${nameError}</p>
       <label for="lastname">Last Name</label>
       <input id="lastname" name="lastname" type="text" />
+      <p>${lastnameError}</p>
       <label for="ucaid">ID UCA</label>
       <input id="ucaid" name="idUca" type="text" />
+      <p>${idUcaError}</p>
       <label for="birthday">Birth Day</label>
       <input id="birthday" name="dob" type="text" />
+      <p>${dobError}</p>
       <input type="submit" />
     </form>
   </body>

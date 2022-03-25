@@ -1,8 +1,15 @@
 package com.uca.taller1.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.uca.taller1.dto.UserDto;
 import com.uca.taller1.models.Student;
 import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +26,17 @@ public class UserController {
 	}
 	
 	@PostMapping("/success")
-	public String showResult(@Valid UserDto userDto, ModelMap model){
+	public String showResult(@Valid UserDto userDto, BindingResult bindingResult, ModelMap model){
+
+  if (bindingResult.hasErrors()) {
+    List<FieldError> errors = bindingResult.getFieldErrors();
+
+        for (FieldError e : errors){
+           model.put(e.getField() + "Error", e.getDefaultMessage());
+        }
+
+		     	return "index.jsp";
+		}
 		Student student = userDto.toStudent();
 		model.put("name", student.name);
 		model.put("lastname", student.lastname);
