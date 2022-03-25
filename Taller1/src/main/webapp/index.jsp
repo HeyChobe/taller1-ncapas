@@ -9,7 +9,7 @@
   <body>
     <form class="form" method="post" action="success">
       <label for="department">Department</label>
-      <select name="department">
+      <select name="depto">
         <option value="Sonsonate">Sonsonate</option>
         <option value="San Salvador">San Salvador</option>
         <option value="La Libertad">La Libertad</option>
@@ -30,9 +30,9 @@
       <label for="lastname">Last Name</label>
       <input id="lastname" name="lastname" type="text" />
       <label for="ucaid">ID UCA</label>
-      <input id="ucaid" name="ucaid" type="text" />
+      <input id="ucaid" name="idUca" type="text" />
       <label for="birthday">Birth Day</label>
-      <input id="birthday" name="birthday" type="text" />
+      <input id="birthday" name="dob" type="text" />
       <input type="submit" />
     </form>
   </body>

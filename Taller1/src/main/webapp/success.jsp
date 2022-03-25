@@ -9,7 +9,7 @@
   <body>
     <p>Name: ${name}</p>
     <p>Last Name: ${lastname}</p>
-    <p>Id UCA: ${ucaId}</p>
+    <p>Id UCA: ${idUca}</p>
     <p>Birth Day: ${birthDay}</p>
     <p>Department: ${department}</p>
   </body>
