@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 import com.uca.taller1.dto.UserDto;
 import com.uca.taller1.models.Student;
 import javax.validation.Valid;
@@ -28,7 +29,13 @@ public class UserController {
 	@PostMapping("/success")
 	public String showResult(@Valid UserDto userDto, BindingResult bindingResult, ModelMap model){
 
-  if (bindingResult.hasErrors()) {
+  if (bindingResult.hasErrors()) return this.showErrorMessages(model, bindingResult);
+
+		Student student = userDto.toStudent();
+  return this.successResponse(model, student);
+	}
+
+  private String showErrorMessages(ModelMap model, BindingResult bindingResult) {
     List<FieldError> errors = bindingResult.getFieldErrors();
 
         for (FieldError e : errors){
@@ -36,13 +43,16 @@ public class UserController {
         }
 
 		     	return "index.jsp";
-		}
-		Student student = userDto.toStudent();
-		model.put("name", student.name);
-		model.put("lastname", student.lastname);
-		model.put("birthDay", student.dob);
-		model.put("idUca", student.idUca);
-		model.put("department", student.depto);	
-		return "success.jsp";
-	}
+  }
+
+  private String successResponse(ModelMap model, Student student) {
+    model.put("name", student.name);
+    model.put("lastname", student.lastname);
+    model.put("birthDay", student.dob);
+    model.put("idUca", student.idUca);
+    model.put("department", student.depto);	
+    model.put("age", student.age);	
+
+    return "success.jsp";
+  }
 }

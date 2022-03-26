@@ -23,7 +23,7 @@ public class UserDto {
   private String idUca;
 
   @NotBlank(message = "The dob name is required.")
-  @Pattern(regexp = "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$", flags = { Flag.CASE_INSENSITIVE }, message = "The dob format is invalid.")
+  @Pattern(regexp = "^(0[1-9]|1[012])/(0[1-9]|[12][0-9]|3[01])/((19[0-9][0-9])|(200[0-9]|201[0-5]))$", flags = { Flag.CASE_INSENSITIVE }, message = "Invalid date of birhtday")
   private String dob;
 
   public Student toStudent() {

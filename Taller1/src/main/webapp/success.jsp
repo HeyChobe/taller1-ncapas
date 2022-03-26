@@ -12,5 +12,6 @@
     <p>Id UCA: ${idUca}</p>
     <p>Birth Day: ${birthDay}</p>
     <p>Department: ${department}</p>
+    <p>Age: ${age}</p>
   </body>
 </html>
