@@ -12,8 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class UserController {
 
+  private BindingResult bindingResult;
+
   @GetMapping("/")
-  public String showLobby() {
+  public String showLobby(ModelMap model) {
+    if (bindingResult != null) {
+      bindingResult
+      .getFieldErrors()
+      .forEach((error) -> model.put(error.getField() + "Error", error.getDefaultMessage()));
+    }
+
     return "index.jsp";
   }
 
@@ -28,11 +36,8 @@ public class UserController {
   }
 
   private String showErrorMessages(ModelMap model, BindingResult bindingResult) {
-    bindingResult
-    .getFieldErrors()
-    .forEach((error) -> model.put(error.getField() + "Error", error.getDefaultMessage()));
-
-    return "index.jsp";
+    this.bindingResult = bindingResult;
+    return "redirect:/";
    }
 
    private String successResponse(ModelMap model, Student student) {
