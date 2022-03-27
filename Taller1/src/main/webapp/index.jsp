@@ -28,15 +28,15 @@
       <option value="Usulután">Usulután</option>
       <option value="Cabañas">Cabañas</option>
     </select>
-    <p>${deptoError}</p>
+    <p id="error" >${deptoError}</p>
     <input id="name" name="name" type="text" placeholder="Name" />
-    <p>${nameError}</p>
+    <p id="error" >${nameError}</p>
     <input id="lastname" name="lastname" type="text" placeholder="Last name" />
-    <p>${lastnameError}</p>
+    <p id="error" >${lastnameError}</p>
     <input id="ucaid" name="idUca" type="text" placeholder="ID UCA" />
-    <p>${idUcaError}</p>
+    <p id="error" >${idUcaError}</p>
     <input id="birthday" name="dob" type="text" placeholder="Birth Day" />
-    <p>${dobError}</p>
+    <p id="error" >${dobError}</p>
     <button type="submit">Save</button>
   </form>
 
