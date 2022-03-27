@@ -9,10 +9,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller
+@Controller("/taller")
 public class UserController {
-
-  private BindingResult bindingResult;
+  public BindingResult bindingResult;
 
   @GetMapping("/")
   public String showLobby(ModelMap model) {
@@ -22,7 +21,7 @@ public class UserController {
       .forEach((error) -> model.put(error.getField() + "Error", error.getDefaultMessage()));
     }
 
-    return "index.jsp";
+    return "form.jsp";
   }
 
   @PostMapping("/success")
@@ -32,6 +31,7 @@ public class UserController {
     }
 
     Student student = userDto.toStudent();
+    this.bindingResult = null;
     return this.successResponse(model, student);
   }
 

@@ -37,6 +37,7 @@
     <p id="error" >${idUcaError}</p>
     <input id="birthday" name="dob" type="text" placeholder="Birth Day" />
     <p id="error" >${dobError}</p>
+    <p id="error" >Si estoy cambiando</p>
     <button type="submit">Save</button>
   </form>
 
